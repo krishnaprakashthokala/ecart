@@ -1,0 +1,66 @@
+allowed:
+    origins: http://nus_frontend:4200
+hibernate:
+    format_sql: true
+io:
+    reflectoring:
+        kafka:
+            bootstrap-servers: kafka:9092
+            topic-1: reflectoring-1
+            topic-2: reflectoring-2
+            topic-3: reflectoring-3
+            topic-4: reflectoring-user
+logging:
+    level:
+        org:
+            apache:
+                kafka: WARN
+okta:
+    oauth2:
+        client-id: 0oac1xv78jEJHLiLn5d7
+        issuer: https://dev-68343085.okta.com/oauth2/default
+server:
+    port: 8443
+    ssl:
+        enabled: false
+        key-alias: luv2code
+        key-store: classpath:luv2code-keystore.p12
+        key-store-password: secret
+        key-store-type: PKCS12
+spring:
+    data:
+        rest:
+            base-path: /api
+            detection-strategy: ANNOTATED
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: admin123
+        tomcat:
+            default-auto-commit: 'true '
+            initial-size: 15
+            max-active: 50
+            max-idle: 15
+            max-wait: 20000
+            min-idle: 8
+        type: org.apache.tomcat.jdbc.pool.DataSource
+        url: jdbc:mysql://nus_db:3306/luv2shop
+        username: admin
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+        show-sql: true
+    kafka:
+        bootstrap-servers: kafka:9092
+        consumer:
+            group-id: my-group-id
+    mvc:
+        pathmatch:
+            matching-strategy: ANT_PATH_MATCHER
+    security:
+        ignored: /**
+stripe:
+    key:
+        secret: sk_test_51NaiSfJ7CqAb5XkllBY5ROYYuUFVcjm54NOmZxXIkaKXyMhEraDQmZj6PUtQRFKfIGuE5n3nARx14MoFZMpAHHMe00niN2kIBc
