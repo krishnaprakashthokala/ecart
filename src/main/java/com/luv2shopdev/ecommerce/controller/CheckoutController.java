@@ -8,11 +8,14 @@ import com.luv2shopdev.ecommerce.service.CheckoutService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
+	Logger log = LoggerFactory.getLogger(CheckoutController.class);
 
     private CheckoutService checkoutService;
 
@@ -22,7 +25,7 @@ public class CheckoutController {
 
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
-
+      log.info("place order");
         return checkoutService.placeOrder(purchase);
     }
 
