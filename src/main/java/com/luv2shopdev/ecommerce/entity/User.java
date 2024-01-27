@@ -18,6 +18,7 @@ public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+	@NotNull
 	private Long id;
     
 	@NotNull
@@ -25,6 +26,7 @@ public class User {
     private String firstName;
 
     @Column(name = "last_name")
+    @NotNull
     private String lastName;
     
     @NotNull
@@ -38,7 +40,8 @@ public class User {
     @NotNull
     @Column(name = "password", nullable = false)
     String password;
-	
+
+    @NotNull
     @Column(name = "phone_number")
     String phoneNumber;
 
